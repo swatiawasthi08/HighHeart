@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Health Check</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <!-- HighHeart custom CSS -->
+    <link href="highHeart.css" rel="stylesheet">
+	<!-- Javascript files for common HTML elements used across pages -->
+  	<script src="navigation.js"></script>
+	<script src="contact.js"></script>
+  	<script src="authenticate.js"></script>
+  	<script src="auth.js"></script>
+	<!-- Page specific CSS -->
+    <style type="text/css">
+		<!-- Styling breadcrumb element to help users navigate efficiently -->
+        ol.breadcrumb{
+          background-color: white;
+        }
+		<!-- Styling the nav-bar to show that the selected tab name is HealthCheck -->
+      .activeCheck {
+            background-color: rgba(255,255,255,.1) !important;
+        }
+		<!-- Formatting labels -->
+      label{
+        display: inline-block;
+        margin-bottom: .5rem;
+        position: relative;
+        top: 2px;
+        margin-left: 2px;
+      }
+
+    </style>
+</head>
+
+<body>
+
+    <!--Main Navigation-->
+    <header>
+
+        <div id="navigation"></div>
+		<div id="authenticate"></div>
+
+
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <main class="mt-5 pt-5">
+        <div class="container">
+
+          <!--Breadcrumb-->
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Health Check</li>
+            </ol>
+          </nav>
+          <!--Breadcrumb-->
+
+            <!--Section: Post-->
+            <section class="mt-4">
+
+                <!--Grid row-->
+                <div class="row">
+
+                     <!--Grid column-->
+                    <div class="col-md-8 hc_bottom_pad">
+
+                        <!--Form-->
+                        <form id="healthcheck-form" class="card_hc" style="background-color: white; padding: 20px;" style="visibility: visible; animation-name: fadeIn;">
+
+                            <div class="text-center">
+                                <p class="h4 hc_bottom_pad">Take the Assessment!</p>
+
+                                <p>Sign Up to store the history of your checks and recommendations.</p>
+
+                            </div>
+
+							<!-- This is the beginning of the radio group that takes the necessary user inputs to feed into
+								 the business logic that works to calculate the BMI and health risk index of the user -->
+
+							<!-- Radio group for collecting users' age-->
+                            <div class="radio-grp"> 
+                                <p class="question-label" style="font-weight: bold">1. How old are you?</p>
+								
+                                <div class="control_hc hc_bottom_pad">
+                                    <input type="radio" class="control_hc-input" id="radio1" value="0" name="age" required>
+                                    <label class="control_hc-label" for="radio1">Younger than 40</label>
+                                </div>
+
+                                <div class="control_hc hc_bottom_pad">
+                                    <input type="radio" class="control_hc-input" id="radio2" value="1" name="age" required>
+                                    <label class="control_hc-label" for="radio2">40-49 Years</label>
+                                </div>
+
+                                <div class="control_hc hc_bottom_pad">
+                                    <input type="radio" class="control_hc-input" id="radio3" value="2"  name="age" required>
+                                    <label class="control_hc-label" for="radio3">50-59 Years</label>
+                                </div>
+
+                                <div class="control_hc hc_bottom_pad">
+                                    <input type="radio" class="control_hc-input" id="radio4" value="3" name="age" required>
+                                    <label class="control_hc-label" for="radio4">60+ Years</label>
+                                </div>
+                                <div class="hc_error" id="invalid-age">Please select your age</div>
+                            </div>
+							<!-- Radio group for collecting the gender information -->
+                            <div class="radio-grp"> 
+                                <p class="question-label" style="font-weight: bold">2. Are you a man or a woman?</p>
+
+                                <div class="control_hc hc_bottom_pad">
+                                  <input type="radio" class="control_hc-input" id="radio5" value="0" name="gender" required>
+                                  <label class="control_hc-label" for="radio5">Woman</label>
+      								  
+									  <!-- Conditional radio button to gather information about gestational diabetes from the female users -->
+									  <div class="reveal-if-active"> 
+      									
+      								  <div class="radio-grp" style="padding-top:5px; padding-bottom:5px;"> 
+                                      <p class="question-label" style="font-weight: bold">Have you ever been diagnosed with gestational diabetes?</p>
+
+                                      <div class="control_hc ">
+                                          <input type="radio" class="control_hc-input" id="radio7" value="0" name="gest" required checked>
+                                          <label class="control_hc-label" for="radio7">No</label>
+                                      </div>
+
+                                      <div class="control_hc ">
+                                          <input type="radio" class="control_hc-input" id="radio8" value="1" name="gest" required>
+                                          <label class="control_hc-label" for="radio8">Yes</label>
+                                      </div>
+                                      <div class="hc_error" id="invalid-gest">Please select if you ever had gestational diabetes</div>
+                                      </div>
+      							
+      								  </div>
+                                </div>
+								<!-- Male users will not have to answer the question about gestational diabetes -->
+                                <div class="control_hc hc_bottom_pad">
+                                    <input type="radio" class="control_hc-input" id="radio6" value="1" name="gender" required>
+                                    <label class="control_hc-label" for="radio6">Man</label>
+                                </div>
+                                <div class="hc_error" id="invalid-gender">Please select your biological gender</div>
+                            </div>
+
+                           
+							<!-- Collecting the family's health history to draw hereditory influence on the person's health condition -->
+                            <div class="radio-grp"> 
+                                <p class="question-label" style="font-weight: bold">3. Do you have a mother, father, sister, or brother with diabetes?</p>
+
+                                <div class="control_hc hc_bottom_pad">
+                                    <input type="radio" class="control_hc-input" id="radio9" value="0" name="family" required>
+                                    <label class="control_hc-label" for="radio9">No</label>
+                                </div>
+
+                                <div class="control_hc hc_bottom_pad">
+                                    <input type="radio" class="control_hc-input" id="radio10" value="1" name="family" required>
+                                    <label class="control_hc-label" for="radio10">Yes</label>
+                                </div>
+                                <div class="hc_error" id="invalid-family">Please select if anyone in your family had diabetes</div>
+                            </div>
+
+
+							<!-- Collecting the data about the user's blood pressure levels -->
+                            <div class="radio-grp"> 
+                                <p class="question-label" style="font-weight: bold">4. Have you ever been diagnosed with high blood pressure?</p>
+
+                                <div class="control_hc hc_bottom_pad">
+                                    <input type="radio" class="control_hc-input" id="radio11" value="0" name="bp" required>
+                                    <label class="control_hc-label" for="radio11">No</label>
+                                </div>
+
+                                <div class="control_hc hc_bottom_pad">
+                                    <input type="radio" class="control_hc-input" id="radio12" value="1" name="bp" required>
+                                    <label class="control_hc-label" for="radio12">Yes</label>
+                                </div>
+                                <div class="hc_error" id="invalid-bp">Please select if you have high BP</div>
+                            </div>
+							<!-- Collecting information to check whether the user is sufferring form the risks of a sedentary lifestyle-->
+                            <div class="radio-grp"> 
+                                <p class="question-label" style="font-weight: bold">5. Are you physically active?</p>
+
+                                <div class="control_hc hc_bottom_pad">
+                                    <input type="radio" class="control_hc-input" id="radio13" value="0" name="phy" required>
+                                    <label class="control_hc-label" for="radio13">Yes</label>
+                                </div>
+
+                                <div class="control_hc hc_bottom_pad">
+                                    <input type="radio" class="control_hc-input" id="radio14" value="1" name="phy" required>
+                                    <label class="control_hc-label" for="radio14">No</label>
+                                </div>
+                                <div class="hc_error" id="invalid-phy">Please select if you are physically active</div>
+                            </div>                            
+							<!--Collecting the user's height information by providing the values in both feet'inches" and cm formats
+								for the user's convenience-->
+                            <div class="radio-grp"> 
+                                <p class="question-label" style="font-weight: bold">6. How tall are you?</p>
+
+                                <select class="hc_select hc_bottom_pad" id="height" required>
+                                  <option value="" disabled="" selected="">Choose your option</option>
+                                  <option value="0">4'10" (147cm)</option>
+                                  <option value="0">4'11" (150cm)</option>
+                                  <option value="0">5'0" (152cm)</option>
+                                  <option value="0">5'1" (155cm)</option>
+                                  <option value="0">5'2" (157cm)</option>
+                                  <option value="1">5'3" (160cm)</option>
+                                  <option value="1">5'4" (163cm)</option>
+                                  <option value="1">5'5" (165cm)</option>
+                                  <option value="1">5'6" (168cm)</option>
+                                  <option value="1">5'7" (170cm)</option>
+                                  <option value="2">5'8" (173cm)</option>
+                                  <option value="2">5'9" (175cm)</option>
+                                  <option value="2">5'10" (178cm)</option>
+                                  <option value="2">5'11" (180cm)</option>
+                                  <option value="3">6'0" (183cm)</option>
+                                  <option value="3">6'1" (185cm)</option>
+                                  <option value="3">6'2" (188cm)</option>
+                                  <option value="3">6'3" (191cm)</option>
+                                  <option value="3">6'4" (193cm)</option>
+                                </select>
+                                <div class="hc_error" id="invalid-height">Please select your height</div>
+                            </div> 
+							<!-- Collecting the user's weight information by providing selection options in both lbs and kg for
+								 ensuring the user's convenience-->
+                            <div class="radio-grp"> 
+                                <p class="question-label" style="font-weight: bold">7. Please select your weight.</p>
+                                
+                                <select class="hc_select hc_bottom_pad" id="weight" required>
+                                    <option value="" disabled="" selected="">Choose your option</option>
+                                    <option value="0">&lt;151 lbs. (68 kg)</option>
+                                    <option value="1">151-196 lbs. (68-88 kg)</option>
+                                    <option value="2">197-261 lbs. (89-118 kg)</option>
+                                    <option value="3">262+ lbs. (119 kg)</option>
+                                </select>
+                                <div class="hc_error" id="invalid-weight">Please select your weight</div>
+                            </div> 
+
+                            <div class="msg_error" id="invalid-msg">Please fill all the fields to submit</div>
+
+                            <button class="hc_submit_btn" data-toggle="modal" data-target="#modalRecommendation" type="submit" onsubmit="submitForm();">Submit</button>
+                        </form>
+                        <!--Form-->
+
+                        <!--Modal: modalRecommendation-->
+                        <div class="modal fade" id="modalRecommendation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                          aria-hidden="true">
+                          <div class="modal-dialog modal-lg" role="document">
+                            <!--Content-->
+                            <div class="modal-content text-center">
+
+                              <!--Body-->
+                              <div class="modal-body">
+
+                              <!--Section: Not enough-->
+                              <section>
+								<!-- This is the view which shows the fitness results once the data has beeen submitted -->
+                                <div class="modal-header text-center">
+									<h2 class="modal-title w-100 font-weight-bold">Fitness Results</h2>
+									<button type="button" id="signup-close" class="close" data-dismiss="modal" aria-label="Close">
+									  <span aria-hidden="true">&times;</span>
+									</button>
+								  </div>
+								  <!--The risk index and BMI shown as part of the health check report-->
+								  <div class="index_style">Risk Index:<span id="hindex_span"></span></div>	
+								  <div class="index_style">BMI Range:<span id="bmi_span"></span></div>  
+
+                                <!--First row-->
+                                <div class="row features-small mb-5 mt-3 wow fadeIn" style="text-align: left;">
+								  <!--The classification of the different areas in which health recommendations are provided-->
+                                  <!--First column-->
+                                  <div class="col-md-4">
+                                    <!--First row-->
+                                    <div class="row">
+                                      <div class="col-2">
+                                        <i class="fas fa-check-circle fa-2x indigo-text"></i>
+                                      </div>
+                                      <div class="col-10">
+                                        <h6 class="rec_sec_heading feature-title">Exercise</h6>
+                                        <p id="exercise"></p>
+                                        <div style="height:15px"></div>
+                                      </div>
+                                    </div>
+                                    <!--/First row-->
+
+                                    <!--Second row-->
+                                    <div class="row">
+                                      <div class="col-2">
+                                        <i class="fas fa-check-circle fa-2x indigo-text"></i>
+                                      </div>
+                                      <div class="col-10">
+                                        <h6 class="rec_sec_heading feature-title">Protein Intake</h6>
+                                        <p id="protein"></p>
+                                        <div style="height:15px"></div>
+                                      </div>
+                                    </div>
+                                    <!--/Second row-->
+ 
+                                    <!--Third row-->
+                                    <div class="row">
+                                      <div class="col-2">
+                                        <i class="fas fa-check-circle fa-2x indigo-text"></i>
+                                      </div>
+                                      <div class="col-10">
+                                        <h6 class="rec_sec_heading feature-title">Fat Intake</h6>
+                                        <p id="fat"></p>
+                                        <div style="height:15px"></div>
+                                      </div>
+                                    </div>
+                                    <!--/Third row-->
+
+                                  </div>
+                                  <!--/First column-->
+
+                                  <!--Second column-->
+                                  <div class="col-md-4 flex-center">
+                                      <div class="row">
+                                          <div class="col-10" style="padding: 70px 0 0 50px;">
+                                            <p style="text-align:center;font-size:40px">HOP! SKIP! <br> BEAT!</p>
+                                            <img src="beat_new1.jpg" alt="HOP SKIP BEAT!"
+                                      class="z-depth-0 img-fluid">
+                                            <div style="height:15px"></div>
+                                          </div>
+                                        </div>
+                                  </div>
+                                  <!--/Second column-->
+
+                                  <!--Third column-->
+                                  <div class="col-md-4 mt-2">
+                                    <!--First row-->
+                                    <div class="row">
+                                      <div class="col-2">
+                                        <i class="fas fa-check-circle fa-2x indigo-text"></i>
+                                      </div>
+                                      <div class="col-10">
+                                        <h6 class="rec_sec_heading feature-title">Mineral Intake</h6>
+                                        <p id="mineral"></p>
+                                        <div style="height:15px"></div>
+                                      </div>
+                                    </div>
+                                    <!--/First row-->
+
+                                    <!--Second row-->
+                                    <div class="row">
+                                      <div class="col-2">
+                                        <i class="fas fa-check-circle fa-2x indigo-text"></i>
+                                      </div>
+                                      <div class="col-10">
+                                        <h6 class="rec_sec_heading feature-title">Stress Relief</h6>
+                                        <p id="stress"></p>
+                                        <div style="height:15px"></div>
+                                      </div>
+                                    </div>
+                                    <!--/Second row-->
+
+                                    <!--Third row-->
+                                    <div class="row">
+                                      <div class="col-2">
+                                        <i class="fas fa-check-circle fa-2x indigo-text"></i>
+                                      </div>
+                                      <div class="col-10">
+                                        <h6 class="rec_sec_heading feature-title">Water Intake</h6>
+                                        <p id="water"></p>
+                                        <div style="height:15px"></div>
+                                      </div>
+                                    </div>
+                                    <!--/Third row-->
+                                  </div>
+                                  <!--/Third column-->
+
+                                </div>
+                                <!--/First row-->
+
+                              </section>
+                              <!--Section: Not enough-->
+                              </div>
+                      
+                            </div>
+                            <!--/.Content-->
+                          </div>
+                        </div>
+                        <!--Modal: modalRecommendation-->
+
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-4 hc_bottom_pad">
+
+                        <!--card_hc: Jumbotron-->
+                        <div class="card blue-gradient hc_bottom_pad wow fadeIn">
+
+                            <!-- Content -->
+                            <div class="card-body text-white text-center">
+
+                              <div class="col-10" style="padding: 10px 0 0 50px;">
+                                <p style="text-align:center;font-size:40px">Take the first step towards attaining Zen!</p>
+                                <img src="beat_new.png" alt="HOP SKIP BEAT!" class="z-depth-0 img-fluid">
+                                <div style="height:15px"></div>
+                              </div>
+
+                            </div>
+                            <!-- Content -->
+                        </div>
+                        <!--card_hc: Jumbotron-->
+
+                        <!--card_hc-->
+                        <div class="card hc_bottom_pad wow fadeIn">
+
+                            <div class="card-header">Related articles</div>
+
+                            <!--card_hc content-->
+                            <div class="card-body">
+
+                                <ul class="list-unstyled">
+                                    <li class="media">
+                                        <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder7.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <a href="https://www.medicalnewstoday.com/articles/319645.php">
+                                                <h5 class="mt-0 mb-1 font-weight-bold">Leafy Greens</h5>
+                                            </a>
+                                            Leafy green vegetables contibute towards (...)
+                                        </div>
+                                    </li>
+                                    <li class="media my-4">
+                                        <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder6.jpg" alt="An image">
+                                        <div class="media-body">
+                                            <a href="https://www.livestrong.com/article/558394-the-advantages-of-jogging-in-the-evening/">
+                                                <h5 class="mt-0 mb-1 font-weight-bold">Chasing Sunsets</h5>
+                                            </a>
+                                            Benefits of jogging in the evenings (...)
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder5.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <a href="https://www.discoverwalking.com/blog/benefits-of-walking-on-the-beach.php">
+                                                <h5 class="mt-0 mb-1 font-weight-bold">A walk along the Beach</h5>
+                                            </a>
+                                            Benefits of walking on the beach (...)
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                        <!--/.card_hc-->
+
+                        <!--card_hc-->
+                        <div class="card hc_bottom_pad wow fadeIn" style="clear:both">
+
+                            <!--card_hc content-->
+                            <div class="card-body text-center">
+
+                                <p class="h5 my-4">Who uses HighHeart?</p>
+
+                                <p>HighHeart is a popular health monitoring service which provides reliable recommendations which help lead a healthy and carefree life.</p>
+
+                                <h5 class="my-4">
+                                    <strong>HighHeart - trusted by old and young alike</strong>
+                                </h5>
+
+                                <!-- Logo carousel -->
+                                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="1800">
+                                    <div class="carousel-inner">
+                                        <!-- First slide -->
+                                        <div class="carousel-item">
+                                            <!--Grid row-->
+                                            <div class="row">
+
+                                                <!--First column-->
+                                                 <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                                    <img src="img/companylogos/pup.png" class="img-fluid px-4" alt="pup - logo" style="max-height: 40px">
+                                                </div>
+                                                <!--/First column-->
+
+                                                <!--Second column-->
+                                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                                    <img src="img/companylogos/pet.png" class="img-fluid px-4" alt="pet - logo" style="max-height: 40px">
+                                                </div>
+                                                <!--/Second column-->
+
+                                            </div>
+                                            <!--/Grid row-->
+                                        </div>
+                                        <!-- First slide -->
+
+                                        <!-- Second slide -->
+                                        <div class="carousel-item active carousel-item-left">
+                                            <!--Grid row-->
+                                            <div class="row">
+
+                                                <!--First column-->
+                                                 <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                                    <img src="img/companylogos/pup.png" class="img-fluid px-4" alt="pup - logo" style="max-height: 40px">
+                                                </div>
+                                                <!--/First column-->
+
+                                                <!--Second column-->
+                                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                                    <img src="img/companylogos/pet.png" class="img-fluid px-4" alt="pet - logo" style="max-height: 40px">
+                                                </div>
+                                                <!--/Second column-->
+
+
+                                            </div>
+                                            <!--/Grid row-->
+                                        </div>
+                                        <!-- Second slide -->
+
+                                        <!-- Third slide -->
+                                        <div class="carousel-item carousel-item-next carousel-item-left">
+                                            <!--Grid row-->
+                                            <div class="row">
+
+                                                <!--First column-->
+                                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                                    <img src="img/companylogos/pup.png" class="img-fluid px-4" alt="pup - logo" style="max-height: 40px">
+                                                </div>
+                                                <!--/First column-->
+
+                                                <!--Second column-->
+                                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                                    <img src="img/companylogos/pet.png" class="img-fluid px-4" alt="pet - logo" style="max-height: 40px">
+                                                </div>
+                                                <!--/Second column-->
+
+                                            </div>
+                                            <!--/Grid row-->
+                                        </div>
+                                        <!-- Third slide -->
+                                    </div>
+                                </div>
+                                <!-- Logo carousel -->
+
+                            </div>
+
+                        </div>
+                        <!--/.card_hc-->
+
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+            </section>
+            <!--Section: Post-->
+
+        </div>
+    </main>
+    <!--Main layout-->
+
+  <!--Footer-->
+  <footer class="page-footer text-center font-small mt-4 mdb-color darken-2 wow fadeIn">
+
+    <!--Call to action-->
+    <div class="pt-4">
+      <a class="btn btn-outline-white" href="index.html#aboutus" >About Us
+      </a>
+      <a class="btn btn-outline-white" href="#" role="button" data-toggle="modal" data-target="#modalContactForm">Contact Us
+      </a>
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+      <a href="https://www.facebook.com/" target="_blank">
+        <i class="fab fa-facebook-f mr-3"></i>
+      </a>
+
+      <a href="https://twitter.com/" target="_blank">
+        <i class="fab fa-twitter mr-3"></i>
+      </a>
+
+      <a href="https://www.youtube.com/" target="_blank">
+        <i class="fab fa-youtube mr-3"></i>
+      </a>
+
+      <a href="https://plus.google.com/" target="_blank">
+        <i class="fab fa-google-plus-g mr-3"></i>
+      </a>
+
+      <a href="https://dribbble.com/" target="_blank">
+        <i class="fab fa-dribbble mr-3"></i>
+      </a>
+
+      <a href="https://pinterest.com/" target="_blank">
+        <i class="fab fa-pinterest mr-3"></i>
+      </a>
+
+      <a href="https://github.com/" target="_blank">
+        <i class="fab fa-github mr-3"></i>
+      </a>
+
+      <a href="http://codepen.io/" target="_blank">
+        <i class="fab fa-codepen mr-3"></i>
+      </a>
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2019 Copyright:
+      <a href="#"> Team 13 </a>
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+  <!--/.Footer-->
+
+    <!-- Contact Us Modal -->
+    <div id="contact"></div>
+    <!-- Contact Us Modal -->
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Initializations -->
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    
+    <script type="text/javascript" src="healthCheck_formsubmit.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>User Profile</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.min.css" rel="stylesheet">
+ <script src="navigation.js"></script>
+ <script src="authenticate.js"></script>
+  <script src="contact.js"></script>
+ <script type="text/javascript" src="auth.js"></script>
+ 
+ 
+  <style>
+  #chartdiv {
+    width: 100%;
+    height: 500px;
+  }
+
+  ol.breadcrumb{
+    background-color: white;
+  }
+
+  th.bold{
+    font-weight: bold;
+  }
+  
+  tr.bluebg{
+    background: #00a3cc;
+    color: white;
+  }
+  .top-nav-collapse{
+    background-color: #001a33 !important;
+    color: #fff!important;
+  }
+  .nav-item .nav-link{
+    color: #fff!important;
+  }
+  
+   .banner-opacity.mask.rgba-black-light{
+      background-color: rgba(0,0,0,.2);
+    }
+    .login-btn{
+      color: white!important;
+      font-weight: bold!important;
+      background-color: #00a3cc !important;
+    }
+    .input-form-color{
+    background-color: #e6faff !important;
+    }
+    .input-form-bg{
+    background-image: url(input.jpg);
+    background-repeat: no-repeat;
+    }
+
+    .no-padding{
+    padding:0 !important;
+    }
+    .top-nav-collapse{
+    background-color: #001a33 !important;
+	}
+	.fa-database{
+    padding-right: 10px;
+    padding-top: 12px;
+    }
+	.navbar {
+    background-color: rgba(0,0,0,.4);
+}
+.greet-padding{
+	padding:10px;
+	position: relative;
+    top: 8px;
+}
+
+#gallery-health{
+  padding: 5% 0; 
+  height: 19.6666666%;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.responsive-gallery {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.update {
+	margin: 0px !important;
+}
+</style>
+</head>
+
+<body>
+
+  <!--Main Navigation-->
+  <header>
+
+   <div id="navigation"></div>
+   <div id="authenticate"></div>
+
+  </header>
+  <!--Main Navigation-->
+
+  <!--Main layout-->
+  <main class="mt-5 pt-5">
+    <div class="container">
+
+      <!--Breadcrumb-->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">User Profile</li>
+        </ol>
+      </nav>
+      <!--Breadcrumb-->
+
+      
+	
+	<hr class="my-5">
+<div>
+<h2> User Profile Data </h2>
+<h5> People change, that's what's great about them! </h5>
+<h6> Feel free to update your profile information.</h6>
+<br>
+	<div id="userprofile">
+		
+	</div>
+</div>
+	<hr class="my-5">
+</main>
+  <!--Main layout-->
+  <!--Footer-->
+  <footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
+
+    <!--Call to action-->
+    <div class="pt-4">
+      <a class="btn btn-outline-white" href="index.html#aboutus" >About Us
+      </a>
+      <a class="btn btn-outline-white" href="#" role="button" data-toggle="modal" data-target="#modalContactForm">Contact Us
+      </a>
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+      <a href="https://www.facebook.com/" target="_blank">
+        <i class="fab fa-facebook-f mr-3"></i>
+      </a>
+
+      <a href="https://twitter.com/" target="_blank">
+        <i class="fab fa-twitter mr-3"></i>
+      </a>
+
+      <a href="https://www.youtube.com/" target="_blank">
+        <i class="fab fa-youtube mr-3"></i>
+      </a>
+
+      <a href="https://plus.google.com/" target="_blank">
+        <i class="fab fa-google-plus-g mr-3"></i>
+      </a>
+
+      <a href="https://dribbble.com/" target="_blank">
+        <i class="fab fa-dribbble mr-3"></i>
+      </a>
+
+      <a href="https://pinterest.com/" target="_blank">
+        <i class="fab fa-pinterest mr-3"></i>
+      </a>
+
+      <a href="https://github.com/" target="_blank">
+        <i class="fab fa-github mr-3"></i>
+      </a>
+
+      <a href="http://codepen.io/" target="_blank">
+        <i class="fab fa-codepen mr-3"></i>
+      </a>
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2019 Copyright:
+      <a href="#"> Team 13 </a>
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+  <!--/.Footer-->
+  
+  
+    <!-- Contact Us Modal -->
+    <div id="contact"></div>
+    <!-- Contact Us Modal -->
+
+  <!-- SCRIPTS -->
+  <!-- AmCharts -->
+  <script src="https://www.amcharts.com/lib/4/core.js"></script>
+  <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://www.amcharts.com/lib/4/themes/dataviz.js"></script>
+  <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+
+  <script type="text/javascript" src="app.js"></script>
+ <script>
+$(document).ready(function(){
+				var globaluser=localStorage.getItem("highheartUser");
+				var user= JSON.parse(globaluser);
+			    document.getElementById("userprofile").innerHTML="Username: <input id='displayname' type='text' name='name' value="+user.displayName+ "><br> <br> Email: "+user.email+"<br><br><input type='submit' class='btn btn-default login-btn waves-effect waves-light update' onclick='updateProfileData()' value='Update Profile'>";
+			});
+</script>
+
+</body>
+
+</html>

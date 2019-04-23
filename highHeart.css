@@ -1,0 +1,241 @@
+    @media (min-width: 800px) and (max-width: 850px) {
+      .navbar:not(.top-nav-collapse) {
+        background: #1C2331 !important;
+      }
+    }
+
+    @media (min-width: 320px) and (max-width: 650px) {
+      #banner-container{
+        background-image: url('fb1.jpg') !important; 
+      }
+    }
+
+    .navbar {
+      background-color: rgba(0,0,0,.4);
+    }
+    .top-nav-collapse{
+      background-color: #001a33 !important;
+      color: #fff!important;
+    }
+    .nav-item .nav-link{
+      color: #fff!important;
+    }
+
+    .banner-opacity.mask.rgba-black-light{
+      background-color: rgba(0,0,0,.2);
+    }
+    .login-btn{
+      color: white!important;
+      font-weight: bold!important;
+      background-color: #00a3cc !important;
+    }
+    .input-form-color{
+      background-color: #e6faff !important;
+    }
+    .input-form-bg{
+      background-image: url(input.jpg);
+      background-repeat: no-repeat;
+    }
+
+    .no-padding{
+      padding:0 !important;
+    }
+    .top-nav-collapse{
+      background-color: #001a33 !important;
+    }
+	
+	  .fa-database{
+      padding-right: 10px;
+      padding-top: 12px;
+    }
+
+    .greet-padding{
+      padding:10px;
+      position: relative;
+      top: 8px;
+    }
+    #chartdiv {
+      width: 100%;
+      height: 500px;
+    }
+    .rec_sec_heading{
+      color: black;
+      font-weight: 400;
+    }
+    .fa-check-circle.indigo-text{
+      color: #00a3cc !important;
+    }
+    .img-size{
+      height: 80%
+    }
+
+    /* Non bootstrap form styles */
+    .hc_bottom_pad{
+      margin-bottom: 1.5rem!important;
+    }
+
+    .card_hc{
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+      border: 0;
+      font-weight: 400;
+      position: relative;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: .25rem;
+    }
+    .control_hc{
+      position: relative;
+      display: block;
+      min-height: 1.5rem;
+    }
+    .hc_select{
+      transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      display: inline-block;
+      width: 100%;
+      height: calc(1.5em + .75rem + 2px);
+      padding: .375rem 1.75rem .375rem .75rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #495057;
+      vertical-align: middle;
+      background: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e) no-repeat right .75rem center/8px 10px;
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    .hc_error{
+      display: none;
+      width: 100%;
+      margin-top: .25rem;
+      font-size: 80%;
+      color: #dc3545;
+    }
+    .msg_error{
+      width: 100%;
+      margin-top: .25rem;
+      font-size: 90%;
+      color: #dc3545;
+      margin-bottom: .50rem;
+    }
+    .hc_submit_btn{
+      margin: inherit;
+      background-color: #33b5e5!important;
+      color: #fff;
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+      padding: .84rem 2.14rem;
+      font-size: .81rem;
+      -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      border: 0;
+      border-radius: .125rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      white-space: normal;
+      word-wrap: break-word;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+      display: block;
+      width: 100%;
+      font-weight: 400;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 1.5;
+    }
+
+    #healthcheck-form button:disabled{
+      border: 1px solid #999999;
+      background-color: #cccccc !important;
+      color: #666666;
+    }
+    .reveal-if-active {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+    input[type="radio"]:checked ~ .reveal-if-active,
+    input[type="checkbox"]:checked ~ .reveal-if-active {
+      opacity: 1;
+      max-height: 120px;
+      overflow: visible;
+      margin-left: 20px;
+    }
+    .index_style{
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    /* Success Story plain form*/
+    .ss_container{
+      margin: 0 auto;
+      width: 40%;
+      padding: 20px 0px;
+    }
+    @media (min-width: 320px) and (max-width: 650px) {
+      .ss_container{
+        margin: 0 auto;
+        width: 100%;
+        padding: 20px 0px;
+      }
+    }
+    .fname_ss{
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+      padding: 5px 5px;
+      box-sizing: border-box;
+      border: 2px solid #fff;
+      border-radius: 4px;
+      font-size: 16px;
+      resize: vertical;
+      margin-top: 10px;
+      width: 37%;
+    }
+    .lname_ss{
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+      padding: 5px 5px;
+      box-sizing: border-box;
+      border: 2px solid #fff;
+      border-radius: 4px;
+      font-size: 16px;
+      resize: vertical;
+      margin-top: 10px;
+      margin-left: 5px;
+      width: 37%;
+    }
+    .ss_content{
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+      height: 150px;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 2px solid #fff;
+      border-radius: 4px;
+      font-size: 16px;
+      resize: vertical;
+      width: 76%;
+    }
+    .ss_submit{
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+      background-color: #33b5e5!important;
+      color: #fff;
+      margin-top: 10px;
+      padding: 5px 10px;
+      width: 76%;
+      border: 1px solid #33b5e5!important;
+    }
+
+
+
+
