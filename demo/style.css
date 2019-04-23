@@ -1,0 +1,52 @@
+body, h1, h2 {
+ margin:0;
+ padding:0;
+}
+body {
+ background:white;
+ font-family: Arial, sans-serif;
+}
+h1 {
+ padding:10px;
+ background:#4fc3fc;
+}
+
+/*---------------------------*/
+/* Read Users */
+/*---------------------------*/
+#userList {
+ margin:0;
+ padding:0;
+ width:200px;
+ float:left;
+ margin:10px;
+ border:1px solid #4fc3fc;
+}
+
+#userList h2 {
+ padding:10px;
+ margin:0;
+ color:black;
+}
+
+#userList li {
+ padding:5px 10px;
+ border-top:1px solid #4fc3fc;
+ cursor: pointer;
+ color:black;
+ font-style: italic;
+}
+
+#userList li:hover {
+ background: #4fc3fc;
+}
+
+#userDetail {
+ float:left;
+ width:200px;
+ margin:10px;
+ margin-left:0;
+ padding:10px;
+ border:1px solid #4fc3fc;
+ color:black;
+}
